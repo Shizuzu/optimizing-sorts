@@ -2,12 +2,7 @@
 #include<stdlib.h>
 
 // Função para realizar a troca dos valores
-void swap(int* a, int* b) 
-{ 
-	int t = *a; 
-	*a = *b; 
-	*b = t; 
-} 
+
 /* This function takes last element as pivot, places 
 the pivot element at its correct position in sorted 
 	array, and places all smaller (smaller than pivot) 
@@ -69,10 +64,5 @@ int main()
 	{
 		arr[i] = rand() % n;
 	}
-	 
-	
-	quickSort(arr, 0, n-1); 
-	printf("Sorted array: n"); 
-	printArray(arr, n-1); 
 	return 0; 
 }
