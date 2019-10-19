@@ -1,0 +1,8 @@
+//
+// Created by victor on 19/10/2019.
+//
+
+#ifndef UPDATINGALGORITHM_UTILS_H
+#define UPDATINGALGORITHM_UTILS_H
+
+#endif //UPDATINGALGORITHM_UTILS_H
