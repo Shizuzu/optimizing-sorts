@@ -1,6 +1,7 @@
 #include <stdbool.h>
 
-int bubble_sort_optimized(int arr[], int n){
+int bubble_sort_optimized(int arr[], int n)
+{
 	int i, pivo, j;
 	bool swap = false;
 	
@@ -19,7 +20,8 @@ int bubble_sort_optimized(int arr[], int n){
 }
 
 
-int bubble_sort(int arr[], int n){
+int bubble_sort(int arr[], int n)
+{
 	int i, pivo, j;
 	
 	for (i = 0; i < n-1; i++)
