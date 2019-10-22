@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include "../Utils/utils.h"
 
 // Função para realizar a troca dos valores
 
@@ -43,26 +44,4 @@ void quickSort(int arr[], int low, int high)
 		quickSort(arr, low, pi - 1); 
 		quickSort(arr, pi + 1, high); 
 	} 
-} 
-
-/* Function to print an array */
-void printArray(int arr[], int size) 
-{ 
-	int i; 
-	for (i=0; i < size; i++) 
-		printf("%d ", arr[i]); 
-	printf("n"); 
-} 
-
-// Driver program to test above functions 
-int main() 
-{ 
-	int arr[100];
-	int n = sizeof(arr)/sizeof(arr[0]); 
-
-	for (int i = 0; i < (n-1); i++)
-	{
-		arr[i] = rand() % n;
-	}
-	return 0; 
 }

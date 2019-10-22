@@ -2,7 +2,8 @@
 // Created by victor on 19/10/2019.
 //
 #include <stdio.h>
-#include <libnet.h>
+#include <time.h>
+#include <stdlib.h>
 #include "utils.h"
 
 void print_array(int arr[], int n){
@@ -13,9 +14,10 @@ void print_array(int arr[], int n){
     }
 }
 
-int creating_random_number_vector(int arr[], int n){
+int creating_random_number_vector(int* arr, int n){
     for (int x = 0; x < n; x++){
-        arr[x] = rand() % n;
+        arr = rand() % n;
+        arr++;
     }
 }
 
@@ -26,3 +28,15 @@ void swap(int* a, int* b)
     *b = t;
 }
 
+double time_consuming(void (*function)(int), int arr[]){
+    clock_t time;
+    time = clock();
+    function((int) arr);
+    time = clock() - time;
+    return ((double)time)/CLOCKS_PER_SEC;
+}
+
+int array_length(int *array)
+{
+    return sizeof(*array)/sizeof(int);
+}

@@ -3,9 +3,18 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include "BubbleSort/bubbleSort.h"
+#include "Utils/utils.h"
+
+#define ARRAY_LENGTH 20
+#define MAX_NUMBER 20
 
 int main () {
     int option = 0;
+    int vector[ARRAY_LENGTH];
+    int *array = &vector;
+    int size = sizeof(array)/sizeof(int);
 
     printf("Selecione uma opcao valida, logo abaixo: \n");
     printf("\t1 - Bubble Sort\n");
@@ -14,12 +23,17 @@ int main () {
     printf("\t4 - Merge Sort\n");
     printf("\t5 - Quick Sort\n");
 
-    scanf("Teste: %d", &option);
+    creating_random_number_vector(&vector, MAX_NUMBER);
+
+    printf("Entre com uma opcao: ");
+    scanf("%d", &option);
 
     do {
         switch (option){
             case 1:
                 //run bubbleSort
+                bubble_sort(&vector);
+                print_array(&vector, array_length(vector));
                 break;
             case 2:
                 //run insertionSort
@@ -39,9 +53,6 @@ int main () {
                 break;
         }
     } while (!option);
-
-
-
     return 0;
 }
 
