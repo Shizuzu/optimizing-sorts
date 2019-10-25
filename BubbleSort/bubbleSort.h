@@ -7,6 +7,6 @@
 
 int bubble_sort_optimized(int *arr[]);
 
-int bubble_sort(int *arr[]);
+int bubble_sort(int arr[], int size);
 
 #endif //UPDATINGALGORITHM_BUBBLESORT_H

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "utils.h"
 
-void print_array(int arr[], int n){
+void print_array(int *arr, int n){
     for (int i = 0; i < n; i++)
     {
         printf("%d", arr[i]);
@@ -14,10 +14,13 @@ void print_array(int arr[], int n){
     }
 }
 
-int creating_random_number_vector(int* arr, int n){
+int creating_random_number_vector(int *arr, int n){
+//    printf("Array: %lu",&arr);
+//    printf("Array: %lu",arr);
+//    printf("Array: %u",*arr);
     for (int x = 0; x < n; x++){
-        arr = rand() % n;
-        arr++;
+        arr[x] = rand() % n;
+        printf("%d - Data intsert: %d\n", x+1, arr[x]);
     }
 }
 

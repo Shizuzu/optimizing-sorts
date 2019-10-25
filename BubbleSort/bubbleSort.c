@@ -1,9 +1,10 @@
 #include <stdbool.h>
+#include <stdio.h>
 #include "../Utils/utils.h"
 
-int bubble_sort_optimized(int *arr)
+int bubble_sort_optimized(int *arr, int size)
 {
-    int length = array_length(arr);
+    int length = size;
 	int i, pivo, j;
 	bool swap = false;
 	
@@ -22,9 +23,9 @@ int bubble_sort_optimized(int *arr)
 }
 
 
-int bubble_sort(int *arr)
+int bubble_sort(int arr[], int size)
 {
-    int length = array_length(arr);
+    int length = size;
 	int i, pivo, j;
 	
 	for (i = 0; i < length-1; i++)
@@ -38,6 +39,7 @@ int bubble_sort(int *arr)
 			}
 		}
 	}
+	print_array(arr, length);
 }
 
 

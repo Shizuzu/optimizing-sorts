@@ -5,7 +5,7 @@
 #ifndef UPDATINGALGORITHM_UTILS_H
 #define UPDATINGALGORITHM_UTILS_H
 
-void print_array(int arr[], int n);
+void print_array(int *arr, int n);
 
 int creating_random_number_vector(int *arr, int n);
 

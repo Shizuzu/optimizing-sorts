@@ -2,8 +2,6 @@
 // Created by victor on 19/10/2019.
 //
 #include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 #include "BubbleSort/bubbleSort.h"
 #include "Utils/utils.h"
 
@@ -13,8 +11,6 @@
 int main () {
     int option = 0;
     int vector[ARRAY_LENGTH];
-    int *array = &vector;
-    int size = sizeof(array)/sizeof(int);
 
     printf("Selecione uma opcao valida, logo abaixo: \n");
     printf("\t1 - Bubble Sort\n");
@@ -23,7 +19,9 @@ int main () {
     printf("\t4 - Merge Sort\n");
     printf("\t5 - Quick Sort\n");
 
-    creating_random_number_vector(&vector, MAX_NUMBER);
+    //Creating the array and calculating his length
+    creating_random_number_vector(vector, MAX_NUMBER);
+    int size = sizeof(vector)/sizeof(int);
 
     printf("Entre com uma opcao: ");
     scanf("%d", &option);
@@ -32,8 +30,8 @@ int main () {
         switch (option){
             case 1:
                 //run bubbleSort
-                bubble_sort(&vector);
-                print_array(&vector, array_length(vector));
+                bubble_sort(vector, size);
+                print_array(vector, size);
                 break;
             case 2:
                 //run insertionSort
