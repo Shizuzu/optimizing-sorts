@@ -5,11 +5,10 @@
 #include "BubbleSort/bubbleSort.h"
 #include "Utils/utils.h"
 
-#define ARRAY_LENGTH 20
-#define MAX_NUMBER 20
-
 int main () {
     int option = 0;
+    double time_consumed[2] = {0,0}; //[0] - Normal Algorithm; [1] - Optimized Algorithm
+    int original_array[ARRAY_LENGTH];
     int vector[ARRAY_LENGTH];
 
     printf("Selecione uma opcao valida, logo abaixo: \n");
@@ -20,8 +19,8 @@ int main () {
     printf("\t5 - Quick Sort\n");
 
     //Creating the array and calculating his length
-    creating_random_number_vector(vector, MAX_NUMBER);
-    int size = sizeof(vector)/sizeof(int);
+    creating_random_number_vector(original_array);
+    recover_array(original_array, vector);
 
     printf("Entre com uma opcao: ");
     scanf("%d", &option);
@@ -30,8 +29,11 @@ int main () {
         switch (option){
             case 1:
                 //run bubbleSort
-                bubble_sort(vector, size);
-                print_array(vector, size);
+                time_consumed[0] = time_consuming(bubble_sort, vector);
+                recover_array(original_array, vector);
+                time_consumed[1] = time_consuming(bubble_sort_optimized, vector);
+                recover_array(original_array, vector);
+                results("Bubble Sort", time_consumed);
                 break;
             case 2:
                 //run insertionSort
@@ -57,22 +59,22 @@ int main () {
 /*
     int main(int argc, char const *argv[]){
     int arr[100000];
-	int size = sizeof(arr)/sizeof(int);
+	int ARRAY_LENGTH = sizeof(arr)/sizeof(int);
 	double timeOfExecution = 0;
 	clock_t time;
 
-	creatingRandomNumberVector(arr, size);
+	creatingRandomNumberVector(arr, ARRAY_LENGTH);
 
 	printf("==> Tempos de Execução <==\n");
 
     time = clock();
-    bubbleSort(arr, size);
+    bubbleSort(arr, ARRAY_LENGTH);
     time = clock() - time;
     timeOfExecution = ((double)time)/CLOCKS_PER_SEC;
     printf("\tBubble Sort: %fs\n", timeOfExecution);
 
     time = clock();
-    bubbleSort(arr, size);
+    bubbleSort(arr, ARRAY_LENGTH);
     time = clock() - time;
     timeOfExecution = ((double)time)/CLOCKS_PER_SEC;
     printf("\tBubble Sort Melhorado: %fs\n", timeOfExecution);
