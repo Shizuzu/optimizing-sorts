@@ -23,16 +23,16 @@ int bubble_sort_optimized(int *arr)
 
 int bubble_sort(int *arr)
 {
-	int i, pivo, j;
+	int i, aux, j;
 	
 	for (i = 0; i < ARRAY_LENGTH-1; i++)
 	{
 		for (j = 0; j < ARRAY_LENGTH-i-1; j++)
 		{
 			if(arr[j] > arr[j+1]){
-				pivo = arr[j];
+                aux = arr[j];
 				arr[j] = arr[j+1];
-				arr[j+1] = pivo;
+				arr[j+1] = aux;
 			}
 		}
 	}
