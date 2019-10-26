@@ -5,12 +5,19 @@
 #ifndef UPDATINGALGORITHM_UTILS_H
 #define UPDATINGALGORITHM_UTILS_H
 
-void print_array(int *arr, int n);
+#define ARRAY_LENGTH 20
+#define MAX_NUMBER 20
 
-int creating_random_number_vector(int *arr, int n);
+void print_array(int *arr);
+
+int creating_random_number_vector(int *arr);
 
 void swap(int* a, int* b);
 
-int array_length(int *array);
+void recover_array(int *original, int *target);
+
+double time_consuming(int (*function)(int*), int *arr);
+
+void results(char *algorithm_name, double *time);
 
 #endif //UPDATINGALGORITHM_UTILS_H

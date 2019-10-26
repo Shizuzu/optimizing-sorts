@@ -6,21 +6,18 @@
 #include <stdlib.h>
 #include "utils.h"
 
-void print_array(int *arr, int n){
-    for (int i = 0; i < n; i++)
+void print_array(int *arr){
+    for (int i = 0; i < ARRAY_LENGTH; i++)
     {
-        printf("%d", arr[i]);
-        if (i != n-1) printf(", "); else printf("\n");
+        printf("%d", *arr);
+        if (i != ARRAY_LENGTH-1) printf(", "); else printf("\n");
+        arr++;
     }
 }
 
-int creating_random_number_vector(int *arr, int n){
-//    printf("Array: %lu",&arr);
-//    printf("Array: %lu",arr);
-//    printf("Array: %u",*arr);
-    for (int x = 0; x < n; x++){
-        arr[x] = rand() % n;
-        printf("%d - Data intsert: %d\n", x+1, arr[x]);
+int creating_random_number_vector(int *arr){
+    for (int x = 0; x < ARRAY_LENGTH; x++){
+        arr[x] = rand() % MAX_NUMBER;
     }
 }
 
@@ -31,15 +28,26 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-double time_consuming(void (*function)(int), int arr[]){
+double time_consuming(int (*function)(int*), int *arr)
+{
     clock_t time;
     time = clock();
-    function((int) arr);
+    function(arr);
     time = clock() - time;
     return ((double)time)/CLOCKS_PER_SEC;
 }
 
-int array_length(int *array)
+void recover_array(int *original, int *target)
 {
-    return sizeof(*array)/sizeof(int);
+    for (int i = 0; i < ARRAY_LENGTH; ++i) {
+        *target = *original;
+        target++;
+        original++;
+    }
+}
+
+void results(char *algorithm_name, double *time)
+{
+    printf("%s: %f\n", algorithm_name, time[0]);
+    printf("%s optimized: %f\n", algorithm_name, time[1]);
 }
