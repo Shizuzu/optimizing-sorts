@@ -1,0 +1,32 @@
+
+#include <stdio.h>
+
+void selectionSort (int arr[], int size){
+	int i, j, menor, aux;
+	for(i=0; i< size - 1; i++){
+		menor = i;
+		for (j = i+1; j< size; j++){
+			
+			if (arr[j] < arr[menor])
+			menor =j;
+		}
+			aux = arr[i];
+			arr[i] = arr[menor];
+			arr[menor]= aux;
+	}
+}
+	
+	int selection_sort(int arr[], int size){
+	int aux = 0;
+	for (int i = 0; i < size-1; i++) {
+		aux = i;
+		for (int j = i+1; j < size; j++){
+			if (arr[j] < arr[aux]) {
+				arr[aux] = arr[i];
+				arr[i] = arr[j];
+				arr[j] = arr[aux];
+			}
+		}
+	}
+
+}
